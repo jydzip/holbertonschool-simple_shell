@@ -6,8 +6,9 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+char *get_path(char **env, const char *cmd_name);
 
 char *read_line();
 char **split_line(char *line);
-void execute_cmd(char **args, char **env, char *name_execute);
+void execute_cmd(char **tokens, char **env, char *name_execute);
 #endif

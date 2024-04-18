@@ -10,19 +10,20 @@ int main(int argc, char **argv, char **env)
 {
 	(void)argc;
 	char *name_execute = argv[0];
-	char *line;
-	char **args;
+	char buffer[32];
+	char *line = buffer;
+	size_t linesize = 32;
+	char **tokens;
 
 	while (1)
 	{
 		printf("$ ");
 		fflush(stdout);
 
-		line = getline();
-		args = split_line(line);
-		execute_cmd(args, env, name_execute);
-		free(line);
-		free(args);
+		getline(&line, &linesize, stdin);
+		tokens = split_line(line);
+		execute_cmd(tokens, env, name_execute);
+		free(tokens);
 	}
 	return (0);
 }
