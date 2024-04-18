@@ -18,9 +18,11 @@ int main(int argc, char **argv, char **env)
 		printf("$ ");
 		fflush(stdout);
 
-		line = read_line();
+		line = getline();
 		args = split_line(line);
 		execute_cmd(args, env, name_execute);
+		free(line);
+		free(args);
 	}
 	return (0);
 }
