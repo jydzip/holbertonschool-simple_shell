@@ -1,6 +1,5 @@
 #include "shell.h"
 
-
 /**
  * main - Start program
  * @argc: Number of arguments
@@ -10,9 +9,9 @@
 int main(int argc, char **argv, char **env)
 {
 	(void)argc;
+	char *name_execute = argv[0];
 	char *line;
 	char **args;
-	char *name_execute = argv[0];
 
 	while (1)
 	{
