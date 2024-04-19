@@ -13,4 +13,5 @@ void non_interactive_shell(char *name_execute, char **env);
 char *read_line();
 char **split_line(char *line);
 void execute_cmd(char **tokens, char **env, char *name_execute);
+void print_environment(char **env);
 #endif

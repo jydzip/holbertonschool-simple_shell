@@ -1,6 +1,16 @@
 #include "shell.h"
 
 
+void print_environment(char **env)
+{
+	int i = 0;
+	while (env[i] != NULL)
+	{
+		printf("%s\n",env[i]);
+		i++;
+	}
+}
+
 /**
  * main - Start program
  * @argc: Number of arguments
@@ -51,9 +61,22 @@ void interactive_shell(char *name_execute, char **env)
 		if (getline(&line, &linesize, stdin) == -1) {
 			break;
 		}
-
 		tokens = split_line(line);
-		execute_cmd(tokens, env, name_execute);
+
+		if (strcmp(tokens[0], "exit") == 0)
+		{
+			free(tokens);
+			break;
+		}
+
+		else if (strcmp(tokens[0], "env") == 0)
+		{
+			print_environment(env);
+		}
+		else
+		{
+			execute_cmd(tokens, env, name_execute);
+		}
 		free(tokens);
 	}
 }
