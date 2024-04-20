@@ -48,20 +48,23 @@ void non_interactive_shell(char *name_execute, char **env)
 
 void interactive_shell(char *name_execute, char **env)
 {
-	char buffer[32];
-	char *line = buffer;
-	size_t linesize = 32;
+	char *line = NULL;
+	size_t line_size = 0;
 	char **tokens;
+	ssize_t line_read = 0;
 
 	while (1)
 	{
 		printf("$ ");
 		fflush(stdout);
 
-		if (getline(&line, &linesize, stdin) == -1) {
+		line_read = getline(&line, &line_size, stdin);
+		if (line_read == -1)
 			break;
-		}
+
 		tokens = split_line(line);
+		if (tokens == NULL || tokens[0] == NULL)
+			continue;
 
 		if (strcmp(tokens[0], "exit") == 0)
 		{
@@ -79,4 +82,5 @@ void interactive_shell(char *name_execute, char **env)
 		}
 		free(tokens);
 	}
+	free(line);
 }
