@@ -1,6 +1,6 @@
 #include "shell.h"
 
-void execute_cmd(char **tokens, char **env, char *name_ex) {
+void execute_cmd(char **tokens, char **env, char *name_execute) {
     int status;
     pid_t child_pid;
     char *cmd;
@@ -11,7 +11,7 @@ void execute_cmd(char **tokens, char **env, char *name_ex) {
         cmd = get_path(env, tokens[0]);
 
     if (!cmd) {
-        fprintf(stderr, "%s: No such file or directory\n", tokens[0]);
+        fprintf(stderr, "%s: No such file or directory\n", name_execute);
         return;
     }
 
