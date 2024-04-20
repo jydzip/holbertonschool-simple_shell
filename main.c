@@ -19,8 +19,8 @@ void print_environment(char **env)
  */
 int main(int argc, char **argv, char **env)
 {
-	(void)argc;
 	char *name_execute = argv[0];
+	(void)argc;
 
 	if (isatty(STDIN_FILENO))
 		interactive_shell(name_execute, env);
