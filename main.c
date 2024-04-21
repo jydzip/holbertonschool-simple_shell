@@ -37,7 +37,10 @@ int main(int argc, char **argv, char **env)
 
 		line_read = getline(&line, &line_size, stdin);
 		if (line_read == -1)
+		{
+			printf("\n");
 			break;
+		}
 
 		tokens = split_line(line);
 		if (tokens == NULL || tokens[0] == NULL)
