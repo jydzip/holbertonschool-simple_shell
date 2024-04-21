@@ -22,12 +22,12 @@ int main(int argc, char **argv, char **env)
 	char *name_execute = argv[0];
 	char *line = NULL;
 	size_t line_size = 0;
-	char **tokens;
 	ssize_t line_read = 0;
+	int status = 1;
 
 	(void)argc;
 
-	while (1)
+	while (status)
 	{
 		if (isatty(STDIN_FILENO))
 		{
@@ -43,27 +43,20 @@ int main(int argc, char **argv, char **env)
 		if (line_read == 0)
 			continue;
 
-		tokens = split_line(line);
-		if (tokens == NULL || tokens[0] == NULL)
-			continue;
-
-		if (strcmp(tokens[0], "exit") == 0)
-		{
-			free(tokens);
+		if (strcmp(line, "exit") == 0)
 			break;
-		}
-
-		else if (strcmp(tokens[0], "env") == 0)
-		{
+		else if (strcmp(line, "env") == 0)
 			print_environment(env);
-		}
 		else
 		{
-			execute_cmd(tokens, env, name_execute);
+			status = execute_cmd(line, env, name_execute);
+			if (status == 0)
+				break;
 		}
-		free(tokens);
 	}
 
 	free(line);
+	if (status == 0)
+		exit(EXIT_FAILURE);
 	return (0);
 }

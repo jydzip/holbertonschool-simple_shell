@@ -1,19 +1,33 @@
 #include "shell.h"
 
-void execute_cmd(char **tokens, char **env, char *name_execute) {
+int execute_cmd(char *line, char **env, char *name_execute) {
 	int status;
 	pid_t child_pid;
 	char *cmd;
+	char **tokens = NULL;
+
+	tokens = split_line(line);
+	if (tokens == NULL)
+	{
+		fprintf(stderr, "Error: Memory allocation failed\n");
+		return (0);
+	}
+	else if (tokens[0] == NULL)
+	{
+		free(tokens);
+		return (1);
+	}
 
 	if (tokens[0][0] == '/')
 		cmd = strdup(tokens[0]);
 	else
 		cmd = get_path(env, tokens[0]);
 
-	if (!cmd)
+	if (cmd == NULL)
 	{
 		fprintf(stderr, "%s: 1: %s: not found\n", name_execute, tokens[0]);
-		return;
+		free(tokens);
+		return (1);
 	}
 
 	child_pid = fork();
@@ -21,18 +35,31 @@ void execute_cmd(char **tokens, char **env, char *name_execute) {
 
 	if (child_pid == -1)
 	{
+		free(tokens);
 		free(cmd);
-		fprintf(stderr, "Error: Fork failed\n");
-		exit(EXIT_FAILURE);
+		fprintf(stderr, "Error: fork failed\n");
+		return (0);
 	}
-	else if (child_pid == 0)
-		execve(tokens[0], tokens, env);
+	if (child_pid == 0)
+	{
+		if (execve(tokens[0], tokens, env) == -1)
+		{
+			free(tokens);
+			free(cmd);
+			fprintf(stderr, "Error: execve failed\n");
+			return (0);
+		}
+	}
 
 	if (waitpid(child_pid, &status, 0) == -1)
 	{
+		free(tokens);
 		free(cmd);
 		fprintf(stderr, "Error: waitpid failed\n");
-		exit(EXIT_FAILURE);
+		return (0);
 	}
+
+	free(tokens);
 	free(cmd);
+	return (1);
 }
