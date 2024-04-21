@@ -32,7 +32,7 @@ void execute_cmd(char **tokens, char **env, char *name_execute) {
 		if (direct_method == 0)
 			free(cmd);
 	} else {
-		execve(tokens[0], tokens, NULL);
+		execve(tokens[0], tokens, env);
 		fprintf(stderr, "Error: execve failed\n");
 		if (direct_method == 0)
 			free(cmd);
