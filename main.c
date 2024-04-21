@@ -38,8 +38,10 @@ int main(int argc, char **argv, char **env)
 		line_read = getline(&line, &line_size, stdin);
 		if (line_read == EOF)
 			break;
-		if (line[line_read - 1] == '\n')
+		if (line_read > 0 && line[line_read - 1] == '\n')
 			line[line_read - 1] = '\0';
+		if (line_read == 0)
+			continue;
 
 		tokens = split_line(line);
 		if (tokens == NULL || tokens[0] == NULL)
