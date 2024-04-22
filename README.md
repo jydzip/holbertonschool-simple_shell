@@ -22,10 +22,6 @@ GCC Language standard **gnu89**
 
 - And minimal understanding of C language
 
-## Testing
-#### Your shell should work like this in interactive mode:
-
-
 
 ## List of allowed functions and system calls for this project
 - access (man 2 access)
