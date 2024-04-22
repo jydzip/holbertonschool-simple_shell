@@ -32,7 +32,7 @@ int main(int argc, char **argv, char **env)
 
 	(void)argc;
 
-	signal(SIGTSTP, ctrl_Z_handler);
+	/* signal(SIGTSTP, ctrl_Z_handler); */
 
 	while (status)
 	{
