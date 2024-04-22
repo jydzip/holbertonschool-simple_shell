@@ -8,9 +8,8 @@
  * @cmd_count: The number of commands executed so far
  *
  * Return: Void
- */
-
- execute_cmd(char *line, char **env, char *name_execute, int cmd_count) {
+*/
+int execute_cmd(char *line, char **env, char *name_execute, int cmd_count) {
 	int status;
 	pid_t child_pid;
 	char *cmd;
