@@ -109,6 +109,9 @@ $ exit
 
 - [README.md](https://github.com/jydzip/holbertonschool-simple_shell/blob/main/README.md) : Description about the project repo
 
+## Contribution
+
+This project is being developed in collaboration with other students as part of a team effort. Any additional contribution is welcome.
 
 ## Authors
 
