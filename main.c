@@ -24,6 +24,7 @@ int main(int argc, char **argv, char **env)
 	size_t line_size = 0;
 	ssize_t line_read = 0;
 	int status = 1;
+	int cmd_count = 0;
 
 	(void)argc;
 
@@ -43,16 +44,15 @@ int main(int argc, char **argv, char **env)
 		if (line_read == 0)
 			continue;
 
+		cmd_count++;
+
 		if (strcmp(line, "exit") == 0)
-		{
-			free(line);
-			exit(EXIT_SUCCESS);
-		}	
+			break;
 		else if (strcmp(line, "env") == 0)
 			print_environment(env);
 		else
 		{
-			status = execute_cmd(line, env, name_execute);
+			status = execute_cmd(line, env, name_execute, cmd_count);
 			if (status == 0)
 				break;
 		}

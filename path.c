@@ -22,16 +22,15 @@ char *get_path(char **env, const char *cmd_name)
 	char *env_path = _getenv(env, "PATH");
 
 	if (env_path == NULL)
-	{
-		fprintf(stderr, "Error: PATH environment variable not found.\n");
 		return (NULL);
-	}
 
 	path_copy = strdup(env_path);
 	if (!path_copy)
 	{
-		fprintf(stderr, "Unable to allocate buffer\n");
+		/* fprintf(stderr, "Unable to allocate buffer\n");
 		exit(EXIT_FAILURE);
+		*/
+		return (NULL);
 	}
 	dir = strtok(path_copy, ":");
 
@@ -40,8 +39,11 @@ char *get_path(char **env, const char *cmd_name)
 		cmd_path = (char *)malloc(cmd_path_size);
 		if (cmd_path == NULL)
 		{
-			fprintf(stderr, "Unable to allocate buffer\n");
+
+			/* fprintf(stderr, "Unable to allocate buffer\n");
 			exit(EXIT_FAILURE);
+			*/
+			return (NULL);
 		}
 		strcpy(cmd_path, dir);
 		strcat(cmd_path, "/");

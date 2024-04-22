@@ -1,6 +1,6 @@
 #include "shell.h"
 
-int execute_cmd(char *line, char **env, char *name_execute) {
+int execute_cmd(char *line, char **env, char *name_execute, int cmd_count) {
 	int status;
 	pid_t child_pid;
 	char *cmd;
@@ -25,7 +25,7 @@ int execute_cmd(char *line, char **env, char *name_execute) {
 
 	if (cmd == NULL)
 	{
-		fprintf(stderr, "%s: 1: %s: not found\n", name_execute, tokens[0]);
+		fprintf(stderr, "%s: %d: %s: not found\n", name_execute, cmd_count, tokens[0]);
 		free(tokens);
 		return (1);
 	}
