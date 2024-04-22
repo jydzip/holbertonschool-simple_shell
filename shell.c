@@ -1,6 +1,16 @@
 #include "shell.h"
 
-int execute_cmd(char *line, char **env, char *name_execute, int cmd_count) {
+/**
+ * execute_cmd - Execute a command with its arguments
+ * @line: The command line entered by the user
+ * @env: The environment variables
+ * @name_execute: The name of the executable file
+ * @cmd_count: The number of commands executed so far
+ *
+ * Return: Void
+ */
+
+ execute_cmd(char *line, char **env, char *name_execute, int cmd_count) {
 	int status;
 	pid_t child_pid;
 	char *cmd;
