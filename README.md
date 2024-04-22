@@ -43,16 +43,20 @@ all functions from string.h
 
 # Requirements
 - [![MIT License](https://cdn.discordapp.com/attachments/1227887926935945216/1231344477428256868/images.png?ex=66369de8&is=662428e8&hm=f403c03b5f313bc107a1f44877011f7ebc46a605cb7e15370582f4a30ba2271c&)](https://gcc.gnu.org/)
-GCC Language standard **gnu89** 
+GCC Language standard **gnu89**
 
-- [![MIT License](https://cdn.discordapp.com/attachments/1227887926935945216/1231344200226836561/2048px-Logo-ubuntu_cof-orange-hex.svg.png?ex=66369da6&is=662428a6&hm=048e469c3d03d9076c91f408e514c20aaba94d72d499e7ee8a8eef87364ff63d& )](https://releases.ubuntu.com/focal/)Ubuntu 
+- [![MIT License](https://cdn.discordapp.com/attachments/1227887926935945216/1231344200226836561/2048px-Logo-ubuntu_cof-orange-hex.svg.png?ex=66369da6&is=662428a6&hm=048e469c3d03d9076c91f408e514c20aaba94d72d499e7ee8a8eef87364ff63d& )](https://releases.ubuntu.com/focal/)Ubuntu
 **20.04 LTS**
 
 
 ## Testing
 #### Your shell should work like this in interactive mode:
 
+
+
 ```bash
+example
+
 
 $ ./hsh
 ($) /bin/ls
@@ -61,6 +65,7 @@ hsh main.c shell.c
 ($) exit
 $
 ```
+
 But also in non-interactive mode.
 
 ```
@@ -76,14 +81,34 @@ hsh main.c shell.c test_ls_2
 hsh main.c shell.c test_ls_2
 $
 ```
+## Installation
+1.Clone the repo 
+```bash
+https://github.com/jydzip/holbertonschool-simple_shell.git
+```
+
+2.install **GCC** "ubuntu"
+```bash
+sudo apt update
+sudo apt install build-essential
+```
 
 
-#### Compilation
+## Compilation
 ```bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ```
-![Logo](https://raw.githubusercontent.com/jydzip/holbertonschool-printf/main/flowchart_printf.png)
+# Files
+- [main.c](https://github.com/jydzip/holbertonschool-simple_shell/blob/main/main.c) 
 
-Acknowledgments
+- [path.c](https://github.com/jydzip/holbertonschool-simple_shell/blob/main/path.c)
 
-[MIT](https://choosealicense.com/licenses/mit/)
+- [shell.c](https://github.com/jydzip/holbertonschool-simple_shell/blob/main/shell.c)
+
+- [shell.h](https://github.com/jydzip/holbertonschool-simple_shell/blob/main/shell.h)
+
+- [split_line.c](https://github.com/jydzip/holbertonschool-simple_shell/blob/main/split_line.c)
+
+- [AUTHORS](https://github.com/jydzip/holbertonschool-simple_shell/blob/main/AUTHORS) : listing all individuals having contributed content
+
+- [README.md](https://github.com/jydzip/holbertonschool-simple_shell/blob/main/README.md) : Description about the project repo
