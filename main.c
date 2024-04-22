@@ -44,7 +44,10 @@ int main(int argc, char **argv, char **env)
 			continue;
 
 		if (strcmp(line, "exit") == 0)
-			break;
+		{
+			free(line);
+			exit(EXIT_SUCCESS);
+		}	
 		else if (strcmp(line, "env") == 0)
 			print_environment(env);
 		else
