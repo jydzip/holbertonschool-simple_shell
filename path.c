@@ -1,6 +1,11 @@
 #include "shell.h"
 
-
+/**
+*_getenv - get a variable environment
+*@env: list of variables environment
+*@name: name of get
+*Return: Variable value of environment or NULL
+*/
 char *_getenv(char **env, const char *name) {
         int i = 0;
 
@@ -11,10 +16,15 @@ char *_getenv(char **env, const char *name) {
                 i++;
         }
         return (NULL);
+
 }
 
-
-
+/**
+*get_path - get a path for execute cmd
+*@env: liste of variable environment
+*@cmd_name: name of command to get
+*Return Variable value of environment_path or NULL
+*/
 char *get_path(char **env, const char *cmd_name)
 {
 	char *path_copy, *dir, *cmd_path = NULL;
