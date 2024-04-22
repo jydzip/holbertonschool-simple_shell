@@ -115,4 +115,4 @@ This project is being developed in collaboration with other students as part of 
 
 ## Authors
 
-This project was carried out by [Jeremy Marc and youssoup] as part of for [Holberton School](https://www.holbertonschool.fr/) taking part of the "Low-level programming & C - Simple Shell
+This project was carried out by [Jeremy Marc and youssoup] as part of for Holberton School(https://www.holbertonschool.fr/) taking part of the "Low-level programming & C - Simple Shell
