@@ -14,6 +14,10 @@ void print_environment(char **env)
 void ctrl_Z_handler() {
     return;
 }
+void ctrl_C_handler() {
+    printf("\n$ ");
+    fflush(stdout);
+}
 
 /**
  * main - Start program
@@ -33,6 +37,7 @@ int main(int argc, char **argv, char **env)
 	(void)argc;
 
 	signal(SIGTSTP, ctrl_Z_handler);
+	signal(SIGINT, ctrl_C_handler);
 
 	while (status)
 	{
