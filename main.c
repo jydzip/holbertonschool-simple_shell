@@ -11,6 +11,10 @@ void print_environment(char **env)
 	}
 }
 
+void ctrl_Z_handler() {
+    return;
+}
+
 /**
  * main - Start program
  * @argc: Number of arguments
@@ -27,6 +31,8 @@ int main(int argc, char **argv, char **env)
 	int cmd_count = 0;
 
 	(void)argc;
+
+	signal(SIGTSTP, ctrl_Z_handler);
 
 	while (status)
 	{
