@@ -38,7 +38,10 @@ int main(int argc, char **argv, char **env)
 
 		line_read = getline(&line, &line_size, stdin);
 		if (line_read == EOF)
+		{
+			printf("\n");
 			break;
+		}
 		if (line_read > 0 && line[line_read - 1] == '\n')
 			line[line_read - 1] = '\0';
 		if (line_read == 0)
