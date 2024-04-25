@@ -1,9 +1,8 @@
-include "shell.h"
+#include "shell.h"
 
 /**
  * split_line - Split a line into words
  * @line: The line to split
- *
  * Return: An array of strings containing the words, or NULL on failure
  */
 char **split_line(char *line)

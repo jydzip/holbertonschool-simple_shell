@@ -7,6 +7,7 @@
 void print_environment(char **env)
 {
 	int i = 0;
+
 	while (env[i] != NULL)
 	{
 		printf("%s\n", env[i]);
@@ -55,11 +56,7 @@ int main(int argc, char **argv, char **env)
 		else if (strcmp(line, "env") == 0)
 			print_environment(env);
 		else
-		{
-			status = execute_cmd(line, env, name_execute, cmd_count);
-			if (status == 0)
-				break;
-		}
+			status = initialize_cmd(line, env, name_execute, cmd_count);
 	}
 
 	free(line);
