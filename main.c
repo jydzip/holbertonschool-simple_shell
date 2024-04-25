@@ -15,14 +15,6 @@ void print_environment(char **env)
 }
 
 /**
- * ctrl_Z_handler - Handles the CTRL+Z signal
- */
-void ctrl_Z_handler(void)
-{
-	return;
-}
-
-/**
  * main - Start program
  * @argc: Number of arguments
  * @argv: List of arguments
@@ -39,8 +31,6 @@ int main(int argc, char **argv, char **env)
 	int cmd_count = 0;
 
 	(void)argc;
-
-	signal(SIGTSTP, ctrl_Z_handler);
 
 	while (status)
 	{

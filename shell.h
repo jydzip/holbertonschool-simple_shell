@@ -12,5 +12,4 @@ char *read_line();
 char **split_line(char *line);
 int execute_cmd(char *line, char **env, char *name_execute, int cmd_count);
 void print_environment(char **env);
-void ctrl_Z_handler();
 #endif
