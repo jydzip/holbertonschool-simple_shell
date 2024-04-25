@@ -1,55 +1,31 @@
 .TH C-SimpleShell 1 "26 February 2024" "0.099" "Man page"
-.SH NAME 
+.SH NAME
 
-C - Simple Shell 
+C - Simple Shell
 
+.Sh Synosp
+.Nm #include <stdlib.h>
+.Nm get_path(char **env, const char *cmd_name)
+.NM _getenv(char **env, const char *name)
+.Nm split_line(char *line)
+.Nm execute_cmd(char *line, char **env, char *name_execute, int cmd_count)
 
-S.H  SYNOPSIS
+.Sh DESCRIPTION
+ La fonction getenv () recherche dans la liste des environnements pour trouver lenom 
+       de la variable d'environnement et renvoie un pointeur vers lechaîne de valeur 
+       correspondante.
+.Pp
 
+.Nm Cette fonction cherche le chemin complet d'une commande donnée en utilisant les informations de l'environnement du programme.      
+.Pp
 
+.Nm Cette fonction divise une chaîne de caractères en mots en utilisant des délimiteurs spécifiés et renvoie un tableau de chaînes de caractères contenant les mots. Elle alloue dynamiquement de la mémoire pour le tableau de mots et renvoie NULLen cas d'erreur d'allocation de mém       
+.Pp
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.Nm Cette fonction divise une chaîne de caractères en mots, recherche le chemin complet de la commande à exécuter, crée un processus fils pour exécuter la commande avec les arguments et l'environnement spécifiés, attend la fin de l'exécution du processus fils , et renvoyer un code de sortie indiquant si la commande a été exécutée avec succès ou non.
+.El
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.SH Auteur 
+.SH Auteur
 
 Marc ;) ,Jeremy, Yousouf
