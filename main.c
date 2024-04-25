@@ -1,25 +1,33 @@
 #include "shell.h"
 
-
+/**
+ * print_environment - Prints the environment variables
+ * @env: The environment variables
+ */
 void print_environment(char **env)
 {
 	int i = 0;
 	while (env[i] != NULL)
 	{
-		printf("%s\n",env[i]);
+		printf("%s\n", env[i]);
 		i++;
 	}
 }
 
-void ctrl_Z_handler() {
-    return;
+/**
+ * ctrl_Z_handler - Handles the CTRL+Z signal
+ */
+void ctrl_Z_handler(void)
+{
+	return;
 }
 
 /**
  * main - Start program
  * @argc: Number of arguments
  * @argv: List of arguments
- * @env: List environnement variables
+ * @env: List of environment variables
+ * Return: 0 on success, non-zero on failure
  */
 int main(int argc, char **argv, char **env)
 {
@@ -32,7 +40,7 @@ int main(int argc, char **argv, char **env)
 
 	(void)argc;
 
-	/* signal(SIGTSTP, ctrl_Z_handler); */
+	signal(SIGTSTP, ctrl_Z_handler);
 
 	while (status)
 	{
@@ -69,3 +77,4 @@ int main(int argc, char **argv, char **env)
 		exit(EXIT_FAILURE);
 	return (0);
 }
+
