@@ -34,7 +34,6 @@ $ sudo apt update
 $ sudo apt install build-essential
 ```
 
-
 # Compilation
 ```bash
 $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
@@ -53,7 +52,6 @@ $ exit
 ## Example of Usage
 ![img](https://cdn.discordapp.com/attachments/1210604243225026591/1232062330037211187/image.png?ex=662816f6&is=6626c576&hm=1e53ff557cb842fc8cfe9780ceb17ef28498f16130d79ed67deee6db31fc6727&)
 
-
 # Files
 | File name | Description |
 | :---------------: |:---------------:|
@@ -62,8 +60,28 @@ $ exit
 | [path.c](https://github.com/jydzip/holbertonschool-simple_shell/blob/main/path.c) | Retrieve and check the PATH and command exist |
 | [shell.c](https://github.com/jydzip/holbertonschool-simple_shell/blob/main/shell.c) | Execute the command |
 
+## Flowchart
+![Flowchart](https://raw.githubusercontent.com/jydzip/holbertonschool-simple_shell/main/Simple_Shell_Simplify.png)
+
+- [Draw.io Visual online](https://drive.google.com/file/d/1SPcrbn4VGkgl-Heq1jjZTIhxc7W8HNeZ/view?usp=sharing)
+
+## Functions and system calls+ used
+- access (`man 2 access`)
+- execve (`man 2 execve`)
+- exit (`man 3 exit`)
+- fflush (`man 3 fflush`)
+- fork (`man 2 fork`)
+- free (`man 3 free`)
+- getline (`man 3 getline`)
+- isatty (`man 3 isatty`)
+- malloc (`man 3 malloc`)
+- printf (`man 3 printf`)
+- fprintf (`man 3 fprintf`)
+- strtok (`man 3 strtok`)
+- waitpid (`man 2 waitpid`)
+
 ## Contribution
 This project is being developed in collaboration with other students as part of a team effort. Any additional contribution is welcome.
 
 ## Authors
-This project was carried out by Youssoup, Jeremy and Marc as part of for [Holberton School](https://www.holbertonschool.fr/)
+This project was carried out by [Youssoup](https://github.com/my-holber), [Jeremy](https://github.com/jydzip) and [Marc](https://github.com/Marc93x) as part of for [Holberton School](https://www.holbertonschool.fr/).
