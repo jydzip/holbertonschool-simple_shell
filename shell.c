@@ -27,10 +27,7 @@ int execute_cmd(char *line, char **env, char *name_execute, int cmd_count) {
 		return (1);
 	}
 
-	if (tokens[0][0] == '/')
-		cmd = strdup(tokens[0]);
-	else
-		cmd = get_path(env, tokens[0]);
+	cmd = get_path(env, tokens[0]);
 
 	if (cmd == NULL)
 	{
