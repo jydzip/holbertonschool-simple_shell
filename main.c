@@ -52,7 +52,10 @@ int main(int argc, char **argv, char **env)
 		cmd_count++;
 
 		if (strcmp(line, "exit") == 0)
+		{
+			printf("OK");
 			break;
+		}
 		else if (strcmp(line, "env") == 0)
 			print_environment(env);
 		else
