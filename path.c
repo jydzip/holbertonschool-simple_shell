@@ -52,7 +52,7 @@ char *get_path(char **env, const char *cmd_name)
 	size_t cmd_path_size = 0;
 	char *env_path;
 
-	if (cmd_name[0] == '/')
+	if (cmd_name[0] == '/' || cmd_name[0] == '.')
 		return (get_path_already_absolute(cmd_name));
 
 	env_path = _getenv(env, "PATH");
