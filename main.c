@@ -33,7 +33,7 @@ int main(int argc, char **argv, char **env)
 
 	(void)argc;
 
-	while (status)
+	while (status == 1)
 	{
 		if (isatty(STDIN_FILENO))
 		{
@@ -60,8 +60,12 @@ int main(int argc, char **argv, char **env)
 	}
 
 	free(line);
-	if (status == 0)
+	if (status != 1)
+	{
+		if (status == 127)
+			exit(127);
 		exit(EXIT_FAILURE);
+	}
 	return (0);
 }
 

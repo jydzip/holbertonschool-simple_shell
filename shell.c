@@ -70,7 +70,9 @@ int initialize_cmd(char *line, char **env, char *name_execute, int cmd_count)
 		fprintf(stderr, "%s: %d: %s: not found\n",
 				name_execute, cmd_count, tokens[0]);
 		free(tokens);
-		return (1);
+		if (isatty(STDIN_FILENO))
+			return (1);
+		return (127);
 	}
 
 	tokens[0] = cmd;
